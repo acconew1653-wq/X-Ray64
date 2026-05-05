@@ -1,0 +1,71 @@
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# airmon-ng check kill
+
+
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# airmon-ng stop wlan0
+
+PHY     Interface       Driver          Chipset
+
+phy0    wlan0           rtw88_8821au    TP-Link Archer T2U PLUS [RTL8821AU]
+                (monitor mode disabled)
+
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# ip link set wlan0down
+Cannot find device "wlan0down"
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# ip link set wlan0 down
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# ip link set wlan0 up  
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# ip link set wlan0 up
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# systemctl start NetworkManager
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# sudo airmon-ng start wlan0    
+
+Found 1 processes that could cause trouble.
+Kill them using 'airmon-ng check kill' before putting
+the card in monitor mode, they will interfere by changing channels
+and sometimes putting the interface back in managed mode
+
+    PID Name
+  16453 NetworkManager
+
+PHY     Interface       Driver          Chipset
+
+phy0    wlan0           rtw88_8821au    TP-Link Archer T2U PLUS [RTL8821AU]
+                (mac80211 monitor mode already enabled for [phy0]wlan0 on [phy0]10)
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# ipconfig            
+Команда «ipconfig» не найдена. Возможно, вы имели в виду:
+  command 'hipconfig' from deb hipcc
+  command 'ifconfig' from deb net-tools
+  command 'iconfig' from deb ipmiutil
+  command 'iwconfig' from deb wireless-tools
+Try: apt install <deb name>
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# iwconfig
+lo        no wireless extensions.
+
+eth0      no wireless extensions.
+
+wlan0     IEEE 802.11  Mode:Monitor  Frequency:2.457 GHz  Tx-Power=20 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Power Management:on
+          
+                                                                                               
+┌──(root㉿Kali)-[/home/ihatemyself]
+└─# sudo aireplay-ng wlan0 --test
+20:45:39  Trying broadcast probe requests...
+20:45:41  No Answer...
+20:45:41  Found 0 APs
